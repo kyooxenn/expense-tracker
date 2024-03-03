@@ -39,6 +39,18 @@ public class UserInfoService implements UserDetailsService {
 
 	public void addUser(UserInfo userInfo) {
 
+		if (ObjectUtils.isEmpty(userInfo.getUsername())) {
+			throw new RuntimeException("Username must not be empty! Please Try again.");
+		}
+
+		if (ObjectUtils.isEmpty(userInfo.getPassword())) {
+			throw new RuntimeException("Password must not be empty! Please Try again.");
+		}
+
+		if (ObjectUtils.isEmpty(userInfo.getEmail())) {
+			throw new RuntimeException("Email must not be empty! Please Try again.");
+		}
+
 		boolean userExist = userInfoMapper.getUserInfo(userInfo);
 
 		if (userExist) {
