@@ -1,0 +1,15 @@
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/expense_db?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+mybatis:
+  mapperLocations: /mapper/*Mapper.xml

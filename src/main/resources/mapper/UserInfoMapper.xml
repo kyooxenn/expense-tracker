@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.proj.expensetracker.mapper.UserInfoMapper">
+
+
+    <select id="getUserInfo" resultType="boolean">
+        SELECT EXISTS(
+        SELECT
+        1
+        FROM
+        expense_db.userinfo AS info
+        WHERE info.email=#{userInfo.email} OR info.username=#{userInfo.username}
+        ) as boolean
+    </select>
+
+</mapper>
