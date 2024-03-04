@@ -4,7 +4,8 @@ import com.proj.expensetracker.entity.UserInfo;
 import com.proj.expensetracker.mapper.UserInfoMapper;
 import com.proj.expensetracker.utils.SnowflakeIdWorkerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails; 
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService; 
 import org.springframework.security.core.userdetails.UsernameNotFoundException; 
 import org.springframework.security.crypto.password.PasswordEncoder; 
@@ -40,21 +41,21 @@ public class UserInfoService implements UserDetailsService {
 	public void addUser(UserInfo userInfo) {
 
 		if (ObjectUtils.isEmpty(userInfo.getUsername())) {
-			throw new RuntimeException("Username must not be empty! Please Try again.");
+			throw new RuntimeException("Username must not be empty! Please Try again.", new IllegalArgumentException("Empty username provided"));
 		}
 
 		if (ObjectUtils.isEmpty(userInfo.getPassword())) {
-			throw new RuntimeException("Password must not be empty! Please Try again.");
+			throw new RuntimeException("Password must not be empty! Please Try again.", new IllegalArgumentException("Empty password provided"));
 		}
 
 		if (ObjectUtils.isEmpty(userInfo.getEmail())) {
-			throw new RuntimeException("Email must not be empty! Please Try again.");
+			throw new RuntimeException("Email must not be empty! Please Try again.", new IllegalArgumentException("Empty email provided"));
 		}
 
 		boolean userExist = userInfoMapper.getUserInfo(userInfo);
 
 		if (userExist) {
-			throw new RuntimeException("User exist! Please Try again.");
+			throw new RuntimeException("User exist! Please Try again.", new UsernameNotFoundException("Username/email already exists. Please choose a different username/email."));
 		}
 
 		SnowflakeIdWorkerUtils snow = new SnowflakeIdWorkerUtils(0,0);
