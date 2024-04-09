@@ -10,6 +10,7 @@ public class ExpenseTrackerApplication {
 
 	public static void main(String[] args) {
 
+		System.out.println("add");
 		SpringApplication.run(ExpenseTrackerApplication.class, args);
 	}
 
