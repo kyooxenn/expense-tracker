@@ -10,7 +10,7 @@ public class ExpenseTrackerApplication {
 
 	public static void main(String[] args) {
 
-
+		System.out.println("Norbs");
 		SpringApplication.run(ExpenseTrackerApplication.class, args);
 	}
 
