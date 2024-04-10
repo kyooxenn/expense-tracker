@@ -11,6 +11,7 @@ public class ExpenseTrackerApplication {
 	public static void main(String[] args) {
 
 
+		System.out.println("merge");
 		SpringApplication.run(ExpenseTrackerApplication.class, args);
 	}
 
