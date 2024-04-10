@@ -15,6 +15,9 @@ public class ExpenseTrackerApplication {
 		System.out.println("mikee");
 		System.out.println("mikee2");
 		System.out.println("hello");
+
+		System.out.println("hi");
+		System.out.println("hi 2");
 		SpringApplication.run(ExpenseTrackerApplication.class, args);
 	}
 
