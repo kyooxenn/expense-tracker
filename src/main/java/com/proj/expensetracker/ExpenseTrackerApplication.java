@@ -12,6 +12,7 @@ public class ExpenseTrackerApplication {
 
 
 		System.out.println("merge");
+		System.out.println("mikee");
 		SpringApplication.run(ExpenseTrackerApplication.class, args);
 	}
 
